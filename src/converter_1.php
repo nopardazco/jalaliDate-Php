@@ -50,7 +50,8 @@ function jalali_to_gregorian($jy, $jm, $jd, $mod='') {
   $gd = $days + 1;
   $sal_a = array(0, 31, (($gy % 4 == 0 and $gy % 100 != 0) or ($gy % 400 == 0))?29:28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31);
   for ($gm = 0; $gm < 13 and $gd > $sal_a[$gm]; $gm++) $gd -= $sal_a[$gm];
-  return ($mod == '')? array($gy, $gm, $gd) : $gy.$mod.$gm.$mod.$gd;
+  //return ($mod == '')? array($gy, $gm, $gd) : $gy.$mod.$gm.$mod.$gd;
+  return ($mod == '')? array($gy, $gm, $gd) : sprintf('%04d'.$mod.'%02d'.$mod.'%02d', $gy, $gm, $gd);
 }
 
 
